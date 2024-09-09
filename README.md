@@ -22,6 +22,8 @@ yctest9296
     用户可以在`File-Preference-Keyboard Shortcuts`中更改/禁用上述按键绑定，也可以为其它命令，比如自动翻页、打开目录等功能绑定快捷键。
 
 ## 预览图
+- 多级目录效果预览图
+    ![多级目录效果预览图](https://github.com/yctest9296/Fishreadyes/blob/main/images/tableofcontent.png?raw=true)
 - 自动翻页功能预览图
     ![自动翻页功能预览图](https://github.com/yctest9296/Fishreadyes/blob/main/images/autoPaging.gif?raw=true)
 
@@ -128,6 +130,8 @@ yctest9296
     *p.s. Upon starting, the extension automatically opens the predefined template code `example_copy.js` (modifiable, see [Template Replacement Instructions](#template_en)) and positions the cursor at line 22 (modifiable, see ["{1}" Book Content Refresh Placeholder](#loc_en)). The content of the current line of the book (default is `xiyouji.txt`) will also be displayed here.*
 
 ## Preview
+- Multi-Level Directories Preview
+    ![Multi-Level Directories Preview](https://github.com/yctest9296/Fishreadyes/blob/main/images/tableofcontent.png?raw=true)
 - Auto-Paging Function Preview
     ![Auto-Paging Function Preview](https://github.com/yctest9296/Fishreadyes/blob/main/images/autoPaging.gif?raw=true)
 
