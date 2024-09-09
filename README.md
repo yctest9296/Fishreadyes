@@ -1,18 +1,38 @@
 # Fishreadyes README（中文说明书，followed by English version manual）
 
-全功能"摸鱼"阅读插件，提供多种阅读功能，包括自动翻页，多级目录，书签，书内查找（支持正则），回退/前进，当前进度自动保存，跳页，等等。
+卷累了，放松一下！全功能隐藏型阅读插件，提供 自动翻页，多级目录，书签，书内查找（支持正则），回退/前进，当前进度自动保存，跳页，等等多种阅读功能。
 
 ## Author
 yctest9296
 
-## 简单示例
+## 简单示例（后面的内容不看也没事）
 - 启动/退出插件：安装插件后，会在最下方状态栏（status bar）上显示一个`播放按钮`（点击后会变成`暂停按钮`），点击后启动插件。点击第二下退出插件。
 
     *p.s. 启动后插件会自动打开预置模板代码`example_copy.js`（可更改，见[后文更换模板说明](#template)），并自动将光标定位在第22行（可更改，见[后文"{1}"`书籍内容刷新标志位`说明](#loc)），书籍（预置书籍为`xiyouji.txt`）的当前行的内容也会显示在此处。*
 
+- 快捷键
+
+    | 快捷键 | 功能 | 何时生效 |
+    |:---:|:---:|:---:|
+    |ctrl+,       |启动/退出插件             |-        |
+    |ctrl+f       |书内查找          | 启动插件后         |
+    |上/下键       |翻页          |启动插件后         |
+    |ctrl+左/右键       |回退/前进          |启动插件后         |
+
+    用户可以在`File-Preference-Keyboard Shortcuts`中更改/禁用上述按键绑定，也可以为其它命令，比如自动翻页、打开目录等功能绑定快捷键。
+
 ## 预览图
-- Auto-Paging Function Preview
-    ![自动翻页功能预览图](./images/autoPaging.gif)
+- 自动翻页功能预览图
+    ![自动翻页功能预览图](https://github.com/yctest9296/Fishreadyes/blob/main/images/autoPaging.gif?raw=true)
+
+## 控制功能 - 新增
+- 设置临时`书籍内容刷新标志位`(`命令 Fishreadyes: Set TMP Identifier`)：为了更灵活的阅读，在`启动插件`期间（即，在启动插件之后），用户可在任意代码文件（不限制在[临时代码文件](#tmpfile)内）、任意位置设置临时`书籍内容刷新标志位`。
+    - 操作步骤：
+        - 在插件设置(`Preferences: Open User Settings`-`Fishreadyes: Child Lock`)中，去除童锁的勾选（默认童锁是勾选，即启用状态）。
+        - 点击`播放按钮`启动插件时，仍会默认定位至`{1}`标志位刷新书籍内容。在这之后，将光标移至想要刷新书籍内容的位置，使用`ctrl+shift+p`打开命令面板，输入命令`Fishreadyes: Set TMP Identifier`以设置临时`书籍内容刷新标志位`。之后，插件就可以识别、并在此标志位的位置显示书籍内容。
+        - 点击`暂停按钮`退出插件，显示的书籍内容自动隐藏。
+    - 注：默认童锁是启用状态。因为每次书籍内容更新会修改当前文件内容，所以为了防止用户误用此功能修改了自己的重要代码（其实问题不大，即使修改了，undo一下不就没事了？）。
+
 
 ## 控制功能
 - 启动/退出插件(`命令 Fishreadyes: Run Or Stop`)：安装插件后，会在最下方状态栏（status bar）上显示一个`播放按钮`（点击后会变成`暂停按钮`），点击后启动插件。点击第二下退出插件。
@@ -39,15 +59,8 @@ yctest9296
 		- `上/下键`绑定为`翻页`，
 		- `ctrl+左/右键`绑定为`回退/前进`。
 	- 退出插件后，插件会自动解绑上述按键、恢复原功能。
-	- 用户可以在`File-Preference-Keyboard Shortcuts`中更改/禁用上述按键绑定，也可以为其它命令绑定快捷键。
+	- 用户可以在`File-Preference-Keyboard Shortcuts`中更改/禁用上述按键绑定，也可以为其它命令，比如自动翻页、打开目录等功能绑定快捷键。
 
-## 控制功能 - 新增
-- 设置临时`书籍内容刷新标志位`(`命令 Fishreadyes: Set TMP Identifier`)：为了更灵活的阅读，在`启动插件`期间（即，在启动插件之后），用户可在任意代码文件（不限制在[临时代码文件](#tmpfile)内）、任意位置设置临时`书籍内容刷新标志位`。
-    - 操作步骤：
-        - 在插件设置(`Preferences: Open User Settings`-`Fishreadyes: Child Lock`)中，去除童锁的勾选（默认童锁是勾选，即启用状态）。
-        - 点击`播放按钮`启动插件时，仍会默认定位至`{1}`标志位刷新书籍内容。在这之后，将光标移至想要刷新书籍内容的位置，使用`ctrl+shift+p`打开命令面板，输入命令`Fishreadyes: Set TMP Identifier`以设置临时`书籍内容刷新标志位`。之后，插件就可以识别、并在此标志位的位置显示书籍内容。
-        - 点击`暂停按钮`退出插件，显示的书籍内容自动隐藏。
-    - 注：默认童锁是启用状态。因为每次书籍内容更新会修改当前文件内容，所以为了防止用户误用此功能修改了自己的重要代码(其实问题不大，即使修改了，undo一下不就没事了？)。
 
 ## 阅读功能（阅读工具按钮）
 - 翻页
@@ -93,15 +106,17 @@ yctest9296
     - 每次页码变化或书签更新，插件会自动保存当前的阅读状态信息。
 
 ## 已知问题
-- 修改当前阅读中使用的[临时代码文件](#tmpfile)(一般也不会有人修改。p.s. 修改或删除都没事)，有可能会让书籍内容显示异常。解决方法：关闭[临时代码文件](#tmpfile)，并点击`播放按钮`两次（即启动再退出插件）即可自动恢复。
+- 修改当前阅读中使用的[临时代码文件](#tmpfile)(一般也不会有人修改。p.s. 修改或删除都没事)，有可能会让书籍内容显示异常。解决方法：关闭[临时代码文件](#tmpfile)，并点击`播放按钮`两次（即退出再启动插件）即可自动恢复。
 - 如果用户使用python脚本作为模板代码，有时会有`1 file to analysis`的提示出现在状态栏（status bar）左侧，影响用户体验（其实也还好）。可能是因为python的pylance插件检查到了代码变动并花费一定时间分析（推测和用户模板代码长度或电脑性能相关）。解决方法：用户阅读时可以手动将pylance暂时禁用。
+
+## 本插件仅供学习参考
 
 
 ---
 
 
 # Fishreadyes README（English version manual）
-All-in-One "Slacking" Reading Extension. This comprehensive reading extension offers a wide array of functionalities tailored for an enjoyable reading experience, including auto-paging, multi-level directories, bookmarks, in-book search (with regex support), back/forward navigation, automatic saving of current progress, jumping to specific pages, and much more.
+Take a break and have a read! All-in-One "Slacking" Reading Extension. This comprehensive reading extension offers a wide array of functionalities tailored for an enjoyable reading experience, including auto-paging, multi-level directories, bookmarks, in-book search (with regex support), back/forward navigation, automatic saving of current progress, jumping to specific pages, and much more.
 
 ## Author
 yctest9296
@@ -114,7 +129,28 @@ yctest9296
 
 ## Preview
 - Auto-Paging Function Preview
-    ![Auto-Paging Function Preview](./images/autoPaging.gif)
+    ![Auto-Paging Function Preview](https://github.com/yctest9296/Fishreadyes/blob/main/images/autoPaging.gif?raw=true)
+
+- Keybindings
+
+    | Keybindings | Function | When functional |
+    |:---:|:---:|:---:|
+    |ctrl+,       |Start/stop extension             |-        |
+    |ctrl+f       |In-book search          | After extension started         |
+    |up/down       |Flip Pages          |After extension started         |
+    |ctrl+left/right       |Go back/forward          |After extension started         |
+
+    Users can modify/disable these bindings or assign new shortcuts to functions, like auto paging and open directory in `File-Preference-Keyboard Shortcuts`.
+
+## Control Functions - New added
+
+- **Set Temporary Book Content Refresh Placeholder (`Command: Fishreadyes: Set TMP Identifier`)**: For more flexible reading, during the extension's active state, users can set a temporary book content refresh placeholder in any code file, at any location.
+    - **Steps**:
+        - Disable the Child Lock in extension settings (`Preferences: Open User Settings` - `Fishreadyes: Child Lock`).
+        - Start the extension. It will default to the `{1}` placeholder for content refresh. Move the cursor to the desired location, open the Command Palette with `ctrl+shift+p`, and input `Fishreadyes: Set TMP Identifier` to set the temporary placeholder. The extension will then display book content at this new location.
+        - Stop the extension to hide displayed content.
+    - **Note**: Child Lock is enabled by default to prevent accidental modifications to important user code.
+
 
 ## Control Functions
 
@@ -148,14 +184,7 @@ yctest9296
     - Upon stopping the extension, bindings are automatically unbound, restoring original functions.
     - Users can modify/disable these bindings or assign new shortcuts in `File-Preference-Keyboard Shortcuts`.
 
-## Control Functions - New added
 
-- **Set Temporary Book Content Refresh Placeholder (`Command: Fishreadyes: Set TMP Identifier`)**: For more flexible reading, during the extension's active state, users can set a temporary book content refresh placeholder in any code file, at any location.
-    - **Steps**:
-        - Disable the Child Lock in extension settings (`Preferences: Open User Settings` - `Fishreadyes: Child Lock`).
-        - Start the extension. It will default to the `{1}` placeholder for content refresh. Move the cursor to the desired location, open the Command Palette with `ctrl+shift+p`, and input `Fishreadyes: Set TMP Identifier` to set the temporary placeholder. The extension will then display book content at this new location.
-        - Stop the extension to hide displayed content.
-    - **Note**: Child Lock is enabled by default to prevent accidental modifications to important user code.
 
 ## Reading Functions (Reading Tool Buttons displayed in bottom status bar)
 
@@ -195,6 +224,7 @@ yctest9296
 
 ## Known Issues
 
-- Modifying the [Temporary Code File](#tmpfile_en) during reading (unlikely) may cause display issues. Solution: Close the file, click the `Play Button` twice (start and stop the extension) to restore.
+- Modifying the [Temporary Code File](#tmpfile_en) during reading (unlikely) may cause display issues. Solution: Close the file, click the `Play Button` twice (stop and then start the extension) to restore.
 - Using Python scripts as template code may sometimes display "1 file to analysis" in the status bar, affecting the user experience (minor). This may be due to the pylance extension analyzing code changes. Solution: Temporarily disable pylance during reading.
 
+## This extension is only for study reference
